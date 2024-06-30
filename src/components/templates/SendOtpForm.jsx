@@ -2,6 +2,7 @@ const SendOtpForm = ({ mobile, setMobile, setStep }) => {
   const submitHandler = (event) => {
     event.preventDefault();
     console.log(event);
+    if (mobile.length !== 11) return;
   };
   return (
     <div>
