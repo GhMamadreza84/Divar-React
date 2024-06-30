@@ -1,6 +1,7 @@
 import { sendOtp } from "../../services/auth";
 
 const SendOtpForm = ({ mobile, setMobile, setStep }) => {
+
   const submitHandler = async (event) => {
     event.preventDefault();
     console.log(event);
@@ -8,6 +9,7 @@ const SendOtpForm = ({ mobile, setMobile, setStep }) => {
     const { response, error } = await sendOtp(mobile);
     console.log({ response, error });
   };
+  
   return (
     <div>
       <form action="" onSubmit={submitHandler}>
