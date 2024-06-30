@@ -9,7 +9,7 @@ const AuthPage = () => {
   return (
     <div>
       {step === 1 && (
-        <SendOtpForm setStep={setStep} mobile={mobile} setMobil={setMobile} />
+        <SendOtpForm setStep={setStep} mobile={mobile} setMobile={setMobile} />
       )}
       {step === 2 && <CheckOtpForm />}
     </div>

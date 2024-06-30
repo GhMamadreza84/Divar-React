@@ -1,6 +1,6 @@
 const SendOtpForm = ({ mobile, setMobile, setStep }) => {
   const submitHandler = (event) => {
-    event.preventDefault;
+    event.preventDefault();
     console.log(event);
   };
   return (
