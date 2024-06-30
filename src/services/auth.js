@@ -6,3 +6,5 @@ const sendOtp = async () => {
     return { error  };
   }
 };
+
+export {sendOtp}
