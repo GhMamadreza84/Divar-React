@@ -6,7 +6,7 @@ const SendOtpForm = ({ mobile, setMobile, setStep }) => {
     console.log(event);
     if (mobile.length !== 11) return;
     const { response, error } = await sendOtp(mobile);
-    console.log({response,error})
+    console.log({ response, error });
   };
   return (
     <div>
