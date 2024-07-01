@@ -1,7 +1,6 @@
 import { sendOtp } from "../../services/auth";
 
 const SendOtpForm = ({ mobile, setMobile, setStep }) => {
-
   const submitHandler = async (event) => {
     event.preventDefault();
     console.log(event);
@@ -9,7 +8,7 @@ const SendOtpForm = ({ mobile, setMobile, setStep }) => {
     const { response, error } = await sendOtp(mobile);
     console.log({ response, error });
   };
-  
+
   return (
     <div>
       <form action="" onSubmit={submitHandler}>
@@ -26,7 +25,9 @@ const SendOtpForm = ({ mobile, setMobile, setStep }) => {
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
         />
-        <button type="submit">ارسال کد تایید</button>
+        <button type="submit" onClick={() => setStep(2)}>
+          ارسال کد تایید
+        </button>
       </form>
     </div>
   );
