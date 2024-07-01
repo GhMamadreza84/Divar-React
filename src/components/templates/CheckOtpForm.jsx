@@ -11,6 +11,8 @@ const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
         value={code}
         onChange={(e) => setCode(e.target.value)}
       />
+      <button type="submit">ورود</button>
+      <button onClick={() => setStep(1)}>تغییر شماره موبایل</button>
     </form>
   );
 };
