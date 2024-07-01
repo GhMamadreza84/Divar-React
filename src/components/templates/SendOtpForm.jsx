@@ -11,7 +11,7 @@ const SendOtpForm = ({ mobile, setMobile, setStep }) => {
 
   return (
     <div>
-      <form action="" onSubmit={submitHandler}>
+      <form  onSubmit={submitHandler}>
         <p>ورود به حساب کاربری</p>
         <span>
           برای استفاده از امکانات دیوار , لطفا شماره موبایل خود را وارد کنید .
