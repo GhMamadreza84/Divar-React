@@ -8,6 +8,12 @@ const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
     if (code.length !== 5) return;
 
     const { response, error } = await checkOtp(mobile, code);
+    if (response) {
+      console.log(response);
+    }
+    if (error) {
+      console.log(error.response.data.message);
+    }
   };
   return (
     <form onSubmit={submitHandler}>
