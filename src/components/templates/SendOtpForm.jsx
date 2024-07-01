@@ -7,6 +7,7 @@ const SendOtpForm = ({ mobile, setMobile, setStep }) => {
     if (mobile.length !== 11) return;
     const { response, error } = await sendOtp(mobile);
     console.log({ response, error });
+    setStep(2)
   };
 
   return (
@@ -25,7 +26,7 @@ const SendOtpForm = ({ mobile, setMobile, setStep }) => {
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
         />
-        <button type="submit" onClick={() => setStep(2)}>
+        <button type="submit" >
           ارسال کد تایید
         </button>
       </form>
