@@ -1,6 +1,10 @@
 const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log({mobile, code});
+  };
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <p>تایید کد اس ام اس شده</p>
       <span>کد پیامک شده به شماره «{mobile}» را وارد کنید </span>
       <label htmlFor="input">کد تایید را وارد کنید</label>

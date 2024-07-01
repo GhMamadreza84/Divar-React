@@ -5,8 +5,8 @@ const sendOtp = async () => {
     const response = await api.post("auth/send-otp");
     return { response };
   } catch (error) {
-    return { error  };
+    return { error };
   }
 };
 
-export {sendOtp}
+export { sendOtp };
