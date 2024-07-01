@@ -1,7 +1,8 @@
 const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log({mobile, code});
+    console.log({ mobile, code });
+    if (code.length !== 5) return;
   };
   return (
     <form onSubmit={submitHandler}>
