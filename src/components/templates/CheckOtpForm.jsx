@@ -1,9 +1,9 @@
 
 const CheckOtpForm = () => {
   return (
-    <div>
-      Check OTP
-    </div>
+    <form>
+      
+    </form>
   );
 }
 
