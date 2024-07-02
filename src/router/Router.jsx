@@ -7,7 +7,6 @@ import HomePage from "src/pages/HomePage";
 
 const Router = () => {
   return (
-    <div>
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
@@ -15,7 +14,6 @@ const Router = () => {
         <Route path="/admin" element={<AdminPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </div>
   );
 };
 
