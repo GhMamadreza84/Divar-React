@@ -10,7 +10,7 @@ const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
 
     const { response, error } = await checkOtp(mobile, code);
     if (response) {
-      setToken(response.data);
+      setToken(response.data );
     }
     if (error) {
       console.log(error.response.data.message);
