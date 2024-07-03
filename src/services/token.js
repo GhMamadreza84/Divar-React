@@ -13,3 +13,4 @@ const getNewTokens = async () => {
     return { error };
   }
 };
+export { getNewTokens };
