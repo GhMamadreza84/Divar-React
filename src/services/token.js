@@ -1,5 +1,4 @@
-const { getCookie } = require("src/utils/cookie");
-
+import { getCookie } from "utils/cookie";
 const getNewTokens = async () => {
   const refreshToken = getCookie("refreshToken");
   if (!refreshToken) return;
