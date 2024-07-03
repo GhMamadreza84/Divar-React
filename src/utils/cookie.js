@@ -7,4 +7,7 @@ const setToken = (tokens) => {
   }`;
 };
 
-export {setToken}
+const getCookie = (cookieName) => {
+  
+};
+export { setToken };
