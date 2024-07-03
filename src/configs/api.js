@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getNewTokens } from "services/token";
-import { getCookie, setCookie, setToken } from "utils/cookie";
+import { getCookie, setCookie } from "utils/cookie";
 const api = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
   headers: {
@@ -21,7 +21,7 @@ api.interceptors.request.use(
   }
 );
 
-api.interceptors.request.use(
+api.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -32,9 +32,8 @@ api.interceptors.request.use(
 
       const res = await getNewTokens();
       if (!res?.response) return;
-      console.log(res);
-      setCookie(res.response);
-      return api.apply(orginalRequest);
+      setCookie(res.response.data);
+      return api(orginalRequest);
     }
   }
 );
