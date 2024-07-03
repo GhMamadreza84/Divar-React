@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getNewTokens } from "services/token";
 import { getCookie } from "utils/cookie";
 const api = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -24,10 +25,14 @@ api.interceptors.request.use(
   (response) => {
     return response;
   },
-  (error) => {
+  async (error) => {
     const orginalRequest = error.config;
     if (error.response.status === 401 && !orginalRequest._retry) {
       orginalRequest._retry = true;
+
+      const res = await getNewTokens();
+      if (!res?.response) return;
+      console.log(res);
     }
   }
 );
