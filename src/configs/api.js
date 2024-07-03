@@ -19,4 +19,17 @@ api.interceptors.request.use(
     return Promise.reject(erorr);
   }
 );
+
+api.interceptors.request.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const orginalRequest = error.config;
+    if (error.response.status === 401 && !orginalRequest._retry) {
+      orginalRequest._retry = true;
+    }
+  }
+);
+
 export { api };
