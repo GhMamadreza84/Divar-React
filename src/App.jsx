@@ -1,17 +1,16 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "pages/HomePage";
-import DashboardPage from "pages/DashboardPage";
-import AuthPage from "pages/AuthPage";
-import AdminPage from "pages/AdminPage";
-import PageNotFound from "pages/404";
+import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Router from "./router/Router";
 
 function App() {
+  const queryClient = new QueryClient();
   return (
     <>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <QueryClientProvider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </QueryClientProvider>
     </>
   );
 }
