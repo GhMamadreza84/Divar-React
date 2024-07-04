@@ -24,7 +24,7 @@ const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
     }
   };
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className={styles.form}>
       <p>تایید کد اس ام اس شده</p>
       <span>کد پیامک شده به شماره «{mobile}» را وارد کنید </span>
       <label htmlFor="input">کد تایید را وارد کنید</label>
@@ -36,7 +36,7 @@ const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
         onChange={(e) => setCode(e.target.value)}
       />
       <button type="submit">ورود</button>
-      <button onClick={() => setStep(1)}>تغییر شماره موبایل</button>
+      <button onClick={() => setStep(1)} className={styles.backButton}>تغییر شماره موبایل</button>
     </form>
   );
 };
