@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { checkOtp } from "services/auth";
 import { getProfile } from "services/user";
 import { setCookie } from "utils/cookie";
-
+import styles from "./CheckOtpForm.module.css"
 const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
   const navigate = useNavigate();
   const { refetch } = useQuery(["profile"], getProfile);
