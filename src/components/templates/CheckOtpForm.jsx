@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { checkOtp } from "services/auth";
 import { setCookie } from "utils/cookie";
 
 const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
+  const navigate = useNavigate();
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log({ mobile, code });
@@ -11,6 +13,7 @@ const CheckOtpForm = ({ code, setCode, setStep, mobile }) => {
     const { response, error } = await checkOtp(mobile, code);
     if (response) {
       setCookie(response.data);
+      navigate("/");
     }
     if (error) {
       console.log(error.response.data.message);
