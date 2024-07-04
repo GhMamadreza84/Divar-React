@@ -6,11 +6,12 @@ import AdminPage from "pages/AdminPage";
 import AuthPage from "pages/AuthPage";
 import DashboardPage from "pages/DashboardPage";
 import HomePage from "pages/HomePage";
+import Loader from "src/components/modules/Loader";
 
 const Router = () => {
   const { data, isLoading, error } = useQuery(["profile"], getProfile);
   console.log({ data, isLoading, error });
-  if (isLoading) return <h1>Loading ...</h1>;
+  if (isLoading) return <Loader />;
   return (
     <Routes>
       <Route index element={<HomePage />} />
