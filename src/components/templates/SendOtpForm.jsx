@@ -1,5 +1,5 @@
 import { sendOtp } from "services/auth";
-import styles from "./SendOtpForm";
+import styles from "./SendOtpForm.module.css";
 const SendOtpForm = ({ mobile, setMobile, setStep }) => {
   const submitHandler = async (event) => {
     event.preventDefault();
