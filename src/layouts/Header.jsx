@@ -12,6 +12,15 @@ const Header = () => {
           <p>تهران</p>
         </span>
       </div>
+      <div>
+        <Link to="/auth">
+          <span>
+            <img src="profile.svg" alt="profile icon" />
+            <p>دیوار من</p>
+          </span>
+        </Link>
+        <Link to="/dashboard">ثبت اگهی</Link>
+      </div>
     </header>
   );
 };
