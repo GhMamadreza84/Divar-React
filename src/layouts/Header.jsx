@@ -3,10 +3,10 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   return (
-    <header>
+    <header className={styles.header}>
       <div>
         <Link to="/">
-          <img src="divar.svg" alt="divar icon" />
+          <img src="divar.svg" alt="divar icon" className={styles.logo} />
         </Link>
         <span>
           <img src="location.svg" alt="location icon" />
@@ -20,7 +20,7 @@ const Header = () => {
             <p>دیوار من</p>
           </span>
         </Link>
-        <Link to="/dashboard">ثبت اگهی</Link>
+        <Link to="/dashboard" className={styles.button}>ثبت اگهی</Link>
       </div>
     </header>
   );
