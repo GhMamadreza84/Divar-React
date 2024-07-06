@@ -11,6 +11,8 @@ const CategoryForm = () => {
 
        <label htmlFor="icon">آیکون</label>
        <input type="text" name="icon" id="icon" />
+
+       <button type="submit">ثبت</button>
     </form>
   );
 }
