@@ -2,11 +2,17 @@ import { useState } from "react";
 
 const CategoryForm = () => {
   const [form, setForm] = useState({ name: "", slug: "", icon: "" });
+
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(form);
+  };
   return (
-    <form onChange={changeHandler}>
+    <form onChange={changeHandler} onSubmit={submitHandler}>
       <h3>دسته بندی جدید</h3>
       <label htmlFor="name">اسم دسته بندی</label>
       <input type="text" name="name" id="name" />
