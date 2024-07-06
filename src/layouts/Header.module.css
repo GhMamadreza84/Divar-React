@@ -7,11 +7,15 @@
   margin-bottom: 20px;
 }
 
-.logo {
+.logo img{
   width: 45ox;
   margin-left: 40px;
+  
+}
+.logo {
   align-items: center;
   display: flex;
+  
 }
 
 .header div {

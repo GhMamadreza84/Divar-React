@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div>
-        <Link to="/">
-          <img src="divar.svg" alt="divar icon" className={styles.logo} />
+        <Link to="/" className={styles.logo} >
+          <img src="divar.svg" alt="divar icon" />
         </Link>
         <span>
           <img src="location.svg" alt="location icon" />
