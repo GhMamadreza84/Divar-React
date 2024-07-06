@@ -11,6 +11,7 @@ const CategoryForm = () => {
     e.preventDefault();
     console.log(form);
   };
+  
   return (
     <form onChange={changeHandler} onSubmit={submitHandler}>
       <h3>دسته بندی جدید</h3>
