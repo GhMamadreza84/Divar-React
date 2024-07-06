@@ -1,9 +1,9 @@
 
 const Footer = () => {
   return (
-    <div>
-      Footer
-    </div>
+    <footer>
+      <p>Developed by <a href=""></a> with ❣</p>
+    </footer>
   );
 }
 
