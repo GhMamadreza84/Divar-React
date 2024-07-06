@@ -13,7 +13,7 @@ const Header = () => {
           <p>تهران</p>
         </span>
       </div>
-      <div>
+      <div className={styles.profile}>
         <Link to="/auth">
           <span>
             <img src="profile.svg" alt="profile icon" />
