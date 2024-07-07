@@ -6,7 +6,7 @@ const CategoryList = () => {
   const { data, isLoading } = useQuery(["get-categories"], getCategory);
   console.log({ data, isLoading });
   return (
-    <div>
+    <div className={styles.list}>
       {isLoading ? (
         <Loader />
       ) : (
