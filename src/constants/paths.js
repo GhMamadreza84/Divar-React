@@ -4,6 +4,7 @@ export const paths = [
   "configs",
   "layouts",
   "components",
+  "components/templates",
   "pages",
   "router",
   "services",
