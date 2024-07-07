@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 const CategoryForm = () => {
   const [form, setForm] = useState({ name: "", slug: "", icon: "" });
   const { mutate, isLoading, error } = useMutation();
+  console.log({ isLoading, error });
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
