@@ -3,11 +3,11 @@ import { getCategory } from "services/admin";
 import Loader from "../modules/Loader";
 import styles from "./CategoryList.module.css";
 const CategoryList = () => {
-  const { data, isLoading } = useQuery(["get-categories"], getCategory);
-  console.log({ data, isLoading });
+  const { data, isFetching } = useQuery(["get-categories"], getCategory);
+  console.log({ data, isFetching });
   return (
     <div className={styles.list}>
-      {isLoading ? (
+      {isFetching ? (
         <Loader />
       ) : (
         data.data.map((i) => (
