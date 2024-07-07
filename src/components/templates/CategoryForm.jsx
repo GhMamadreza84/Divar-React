@@ -1,10 +1,17 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { addCategory } from "src/services/admin";
 import styles from "./CategoryForm.module.css";
 const CategoryForm = () => {
   const [form, setForm] = useState({ name: "", slug: "", icon: "" });
-  const { mutate, isLoading, error, data } = useMutation(addCategory);
+  const queryClient = useQueryClient();
+  const { mutate, isLoading, error, data } = useMutation(addCategory, {
+    onSuccess: () => queryClient.invalidateQueries("get-categories"),
+  });
   console.log({ isLoading, error, data });
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
