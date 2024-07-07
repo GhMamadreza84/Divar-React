@@ -1,8 +1,9 @@
 import { useState } from "react";
-import styles from "./CategoryForm.module.css"
+import styles from "./CategoryForm.module.css";
+import { useMutation } from "@tanstack/react-query";
 const CategoryForm = () => {
   const [form, setForm] = useState({ name: "", slug: "", icon: "" });
-
+  const { mutate, isLoading, error } = useMutation();
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
@@ -11,9 +12,13 @@ const CategoryForm = () => {
     e.preventDefault();
     console.log(form);
   };
-  
+
   return (
-    <form onChange={changeHandler} onSubmit={submitHandler} className={styles.form}>
+    <form
+      onChange={changeHandler}
+      onSubmit={submitHandler}
+      className={styles.form}
+    >
       <h3>دسته بندی جدید</h3>
       <label htmlFor="name">اسم دسته بندی</label>
       <input type="text" name="name" id="name" />
