@@ -11,6 +11,9 @@ const CategoryForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(form);
+    if (!form.name || !form.slug || !form.icon) return;
+
+    mutate(form);
   };
 
   return (
