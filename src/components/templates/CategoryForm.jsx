@@ -4,8 +4,8 @@ import { addCategory } from "src/services/admin";
 import styles from "./CategoryForm.module.css";
 const CategoryForm = () => {
   const [form, setForm] = useState({ name: "", slug: "", icon: "" });
-  const { mutate, isLoading, error } = useMutation(addCategory);
-  console.log({ isLoading, error });
+  const { mutate, isLoading, error, data } = useMutation(addCategory);
+  console.log({ isLoading, error, data });
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
@@ -25,6 +25,8 @@ const CategoryForm = () => {
       className={styles.form}
     >
       <h3>دسته بندی جدید</h3>
+      {!!error && <p>مشکلی پیش آمده است</p>}
+      {data && <p>دسته بندی با موفقیت اضافه شد</p>}
       <label htmlFor="name">اسم دسته بندی</label>
       <input type="text" name="name" id="name" />
 
@@ -34,7 +36,9 @@ const CategoryForm = () => {
       <label htmlFor="icon">آیکون</label>
       <input type="text" name="icon" id="icon" />
 
-      <button type="submit">ثبت</button>
+      <button type="submit" disabled={isLoading}>
+        ثبت
+      </button>
     </form>
   );
 };
