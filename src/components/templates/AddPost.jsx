@@ -1,4 +1,8 @@
+import { useQuery } from "@tanstack/react-query";
+
 const AddPost = () => {
+  const { data, isFetching } = useQuery(["get-categories"], getCategory);
+
   return (
     <form>
       <h3>افزودن اگهی</h3>
@@ -14,7 +18,7 @@ const AddPost = () => {
       <label htmlFor="city">شهر</label>
       <input type="text" name="city" id="city" />
 
-      
+
     </form>
   );
 };
