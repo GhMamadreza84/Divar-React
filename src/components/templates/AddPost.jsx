@@ -3,7 +3,7 @@ import { getCategory } from "src/services/admin";
 
 const AddPost = () => {
   const { data } = useQuery(["get-categories"], getCategory);
-  console.log(data)
+  console.log(data);
   return (
     <form>
       <h3>افزودن اگهی</h3>
@@ -21,12 +21,11 @@ const AddPost = () => {
 
       <label htmlFor="category">دسته بندی</label>
       <select name="category" id="category">
-        {data?.data.map((i) => {
+        {data?.data.map((i) => (
           <option key={i._id} value={i._id}>
             {i.name}
-          </option>;
-        }
-        )}
+          </option>
+        ))}
       </select>
     </form>
   );
