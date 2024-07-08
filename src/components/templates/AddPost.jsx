@@ -4,6 +4,10 @@ import { getCategory } from "src/services/admin";
 const AddPost = () => {
   const { data } = useQuery(["get-categories"], getCategory);
   console.log(data);
+  const addHandler = (e) => {
+    e.preventDefualt();
+    console.log("send");
+  };
   return (
     <form>
       <h3>افزودن اگهی</h3>
@@ -27,6 +31,11 @@ const AddPost = () => {
           </option>
         ))}
       </select>
+
+      <label htmlFor="images">عکس</label>
+      <input type="file" name="images" id="images" />
+
+      <button onClick={addHandler}>ثبت اگهی</button>
     </form>
   );
 };
