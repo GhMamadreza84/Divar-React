@@ -5,7 +5,7 @@ const AddPost = () => {
   const { data } = useQuery(["get-categories"], getCategory);
   console.log(data);
   const addHandler = (e) => {
-    e.preventDefualt();
+    e.preventDefault();
     console.log("send");
   };
   return (
