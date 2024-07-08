@@ -1,5 +1,7 @@
 const AddPost = () => {
-  return <div>addpost</div>;
+  return <form>
+    
+  </form>
 };
 
 export default AddPost;
