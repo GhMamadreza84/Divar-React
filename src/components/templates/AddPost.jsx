@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+import { getCategory } from "src/services/admin";
 
 const AddPost = () => {
-  const { data, isFetching } = useQuery(["get-categories"], getCategory);
+  const { data } = useQuery(["get-categories"], getCategory);
 
   return (
     <form>
