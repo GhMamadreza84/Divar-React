@@ -3,13 +3,17 @@ import { getCategory } from "src/services/admin";
 
 const AddPost = () => {
   const { data } = useQuery(["get-categories"], getCategory);
-  console.log(data);
+
+  const changeHandler = (e) => {
+    console.log(e);
+  };
+
   const addHandler = (e) => {
     e.preventDefault();
     console.log("send");
   };
   return (
-    <form>
+    <form onChange={changeHandler}>
       <h3>افزودن اگهی</h3>
       <label htmlFor="title">عنوان</label>
       <input type="text" name="title" id="title" />
