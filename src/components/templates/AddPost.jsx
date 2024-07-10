@@ -1,5 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 import { getCategory } from "src/services/admin";
 import styles from "./AddPost.module.css";
 const AddPost = () => {
@@ -27,7 +28,15 @@ const AddPost = () => {
     for (let i in form) {
       formData.append(i, form[i]);
     }
-    console.log(formData);
+    axios
+      .post(`${import.meta.env.VITE_BASE_URL}post/create`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          AuthorizationL: `bearer ${token}`,
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
   };
   return (
     <form onChange={changeHandler} className={styles.form}>
