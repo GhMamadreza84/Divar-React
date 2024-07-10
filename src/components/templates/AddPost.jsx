@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { getCategory } from "src/services/admin";
+import { getCategory } from "services/admin";
 import styles from "./AddPost.module.css";
-import { getCookie } from "src/utils/cookie";
+import { getCookie } from "utils/cookie";
 import toast from "react-hot-toast";
 const AddPost = () => {
   const { data } = useQuery(["get-categories"], getCategory);
