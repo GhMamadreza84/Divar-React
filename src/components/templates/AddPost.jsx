@@ -37,8 +37,8 @@ const AddPost = () => {
           Authorization: `bearer ${token}`,
         },
       })
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+      .then((res) => toast.success("اگهی با موفقیت منتشر شد"))
+      .catch((error) => toast.error("بنظر مشکلی پیش آمده لطفا دقایقی دیگر دوباره امتحان کنید"));
   };
   return (
     <form onChange={changeHandler} className={styles.form}>
