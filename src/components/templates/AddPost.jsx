@@ -3,6 +3,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { getCategory } from "src/services/admin";
 import styles from "./AddPost.module.css";
+import { getCookie } from "src/utils/cookie";
 const AddPost = () => {
   const { data } = useQuery(["get-categories"], getCategory);
   const [form, setForm] = useState({
@@ -28,6 +29,7 @@ const AddPost = () => {
     for (let i in form) {
       formData.append(i, form[i]);
     }
+    const token = getCookie("accessToken");
     axios
       .post(`${import.meta.env.VITE_BASE_URL}post/create`, formData, {
         headers: {
