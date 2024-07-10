@@ -1,9 +1,8 @@
+import { useQueries, useQuery } from "@tanstack/react-query";
 
 const PostList = () => {
-  return (
-    <div>
-    </div>
-  );
-}
+  const { data, isLoading } = useQuery(["my-post-list"]);
+  return <div>Post List</div>;
+};
 
 export default PostList;
