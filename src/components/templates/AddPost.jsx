@@ -48,7 +48,7 @@ const AddPost = () => {
       <textarea name="content" id="content" />
 
       <label htmlFor="amount">قیمت</label>
-      <input type="text" name="amount" id="amount" />
+      <input type="number" name="amount" id="amount" />
 
       <label htmlFor="city">شهر</label>
       <input type="text" name="city" id="city" />
