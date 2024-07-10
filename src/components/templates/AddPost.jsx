@@ -34,7 +34,7 @@ const AddPost = () => {
       .post(`${import.meta.env.VITE_BASE_URL}post/create`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-          AuthorizationL: `bearer ${token}`,
+          Authorization: `bearer ${token}`,
         },
       })
       .then((res) => console.log(res))
