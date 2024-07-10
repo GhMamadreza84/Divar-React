@@ -13,7 +13,7 @@ const AddPost = () => {
     amount: "",
     city: "",
     category: "",
-    images: null,
+    images: "",
   });
   const changeHandler = (e) => {
     const name = e.target.name;
