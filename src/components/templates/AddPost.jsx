@@ -27,7 +27,7 @@ const AddPost = () => {
     for (let i in form) {
       formData.append(i, form[i]);
     }
-    console.log(form);
+    console.log(formData);
   };
   return (
     <form onChange={changeHandler} className={styles.form}>
