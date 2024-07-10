@@ -24,6 +24,7 @@
 
 .form textarea{
   height: 100px;
+  resize: none;
 }
 
 .form button{
