@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { getCategory } from "src/services/admin";
-import styles from "./AddPost.module.css"
+import styles from "./AddPost.module.css";
 const AddPost = () => {
   const { data } = useQuery(["get-categories"], getCategory);
   const [form, setForm] = useState({
@@ -23,6 +23,10 @@ const AddPost = () => {
 
   const addHandler = (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    for (let i in form) {
+      formData.append(i, form[i]);
+    }
     console.log(form);
   };
   return (
