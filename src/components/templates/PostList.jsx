@@ -17,6 +17,14 @@ const PostList = () => {
           {data.data.posts.map((post) => (
             <div key={post._id}>
               <img src={`${baseUrl}${post.images[0]}`} />
+              <div>
+                <p>{post.options.title}</p>
+                <span>{post.options.content}</span>
+              </div>
+              <div>
+                <p>{post.createdAt}</p>
+                <span>{post.amount} تومان</span>
+              </div>
             </div>
           ))}
         </>
