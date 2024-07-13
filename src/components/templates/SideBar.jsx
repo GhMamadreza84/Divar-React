@@ -9,7 +9,7 @@ const SideBar = () => {
       <h4>دسته ها </h4>
       {data?.data.map((category) => (
         <li key={category._id}>
-          <img src={`${category.icon}.svg`} alt="side-bar-icon" />
+          <img src={`${category.icon}.svg`}  />
           <p>{category.name}</p>
         </li>
       ))}
