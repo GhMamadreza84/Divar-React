@@ -1,11 +1,6 @@
-const Main = ({ data }) => {
+const Main = ({ post }) => {
   return <div>
-    {data?.data.posts.map(post=>(
-      <div>
-        <img src={post.images} alt="" />
-        <p>{post.name}</p>
-      </div>
-    ))}
+    main
   </div>;
 };
 
