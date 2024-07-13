@@ -1,3 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
+import { getCategory } from "src/services/admin";
+
 const SideBar = () => {
   const { data } = useQuery(["get-categories"], getCategory);
 
