@@ -1,9 +1,11 @@
+import Main from "src/components/templates/Main";
+import SideBar from "src/components/templates/SideBar";
 
 const HomePage = () => {
   return (
     <div>
-      HomePage
-      HomePage
+      <SideBar />
+      <Main />
     </div>
   );
 }
