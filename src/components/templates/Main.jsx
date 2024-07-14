@@ -9,8 +9,10 @@ const Main = ({ posts }) => {
             <p>{post.options.title}</p>
             <div>
               <p>{sp(post.amount)} تومان</p>
+              <span>{post.options.city}</span>
             </div>
           </div>
+          <img src="" />
         </div>
       ))}
     </div>
