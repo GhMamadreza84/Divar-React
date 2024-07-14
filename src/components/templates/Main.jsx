@@ -1,6 +1,7 @@
 import { sp } from "src/utils/numbers";
 
 const Main = ({ posts }) => {
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   return (
     <div>
       {posts.data.posts.map((post) => (
@@ -12,7 +13,7 @@ const Main = ({ posts }) => {
               <span>{post.options.city}</span>
             </div>
           </div>
-          <img src="" />
+          <img src={`${baseUrl}${post.images[0]}`} />
         </div>
       ))}
     </div>
