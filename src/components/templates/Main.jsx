@@ -1,6 +1,6 @@
 const Main = ({ post }) => {
   return <div>
-    main
+    {post}
   </div>;
 };
 

@@ -8,7 +8,7 @@ import { getCategory } from "services/admin";
 const style = { display: "flex" };
 
 const HomePage = () => {
-  const { data: post, isLoading: postLoading } = useQuery(
+  const { data: posts, isLoading: postLoading } = useQuery(
     ["post-list"],
     getAllPosts
   );
@@ -24,7 +24,7 @@ const HomePage = () => {
       ) : (
         <div style={style}>
           <SideBar categories={categories} />
-          <Main post={post}  />
+          <Main posts={posts}  />
         </div>
       )}
     </>
