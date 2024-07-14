@@ -1,5 +1,5 @@
 import { sp } from "src/utils/numbers";
-
+import styles from "./Main.module.css"
 const Main = ({ posts }) => {
   const baseUrl = import.meta.env.VITE_BASE_URL;
   return (
