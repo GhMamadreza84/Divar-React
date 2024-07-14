@@ -3,10 +3,10 @@ import styles from "./Main.module.css"
 const Main = ({ posts }) => {
   const baseUrl = import.meta.env.VITE_BASE_URL;
   return (
-    <div>
+    <div className={styles.container}>
       {posts.data.posts.map((post) => (
-        <div key={post._id}>
-          <div>
+        <div key={post._id} className={styles.card}>
+          <div className={styles.info}>
             <p>{post.options.title}</p>
             <div>
               <p>{sp(post.amount)} تومان</p>
