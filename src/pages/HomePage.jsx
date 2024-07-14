@@ -16,7 +16,7 @@ const HomePage = () => {
     ["get-categories"],
     getCategory
   );
-
+  console.log(posts)
   return (
     <>
       {postLoading || categoryLoading ? (
