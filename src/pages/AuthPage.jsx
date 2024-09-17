@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import SendOtpForm from "../components/templates/SendOtpForm";
+import CheckOtpForm from "../components/templates/CheckOtpForm";
 
 const AuthPage = () => {
   return (
     <div>
-      authpage
+      <SendOtpForm />
+      <CheckOtpForm />
     </div>
-  )
-}
+  );
+};
 
-export default AuthPage
+export default AuthPage;
