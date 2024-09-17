@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import SendOtpForm from "../components/templates/SendOtpForm";
 import CheckOtpForm from "../components/templates/CheckOtpForm";
 
 const AuthPage = () => {
-  return (
-    <div>
-      <SendOtpForm />
-      <CheckOtpForm />
-    </div>
-  );
+  const [step, setStep] = useState(2);
+  return <div>{step === 1 ? <SendOtpForm /> : <CheckOtpForm />}</div>;
 };
 
 export default AuthPage;
