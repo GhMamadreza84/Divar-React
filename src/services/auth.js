@@ -8,3 +8,5 @@ const sendOtp = async (mobile) => {
     return { error };
   }
 };
+
+export {sendOtp}
