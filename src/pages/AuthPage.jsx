@@ -6,7 +6,15 @@ const AuthPage = () => {
   const [step, setStep] = useState(1);
   const [mobile, setMobile] = useState("");
   const [code, setCode] = useState("");
-  return <div>{step === 1 ? <SendOtpForm /> : <CheckOtpForm />}</div>;
+  return (
+    <div>
+      {step === 1 ? (
+        <SendOtpForm setStep={setStep} mobile={mobile} setMobile={setMobile} />
+      ) : (
+        <CheckOtpForm />
+      )}
+    </div>
+  );
 };
 
 export default AuthPage;
