@@ -1,8 +1,11 @@
 import React from "react";
 
 const SendOtpForm = () => {
+  const submitHandler = (event) => {
+    console.log(event);
+  };
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <p>ورود به حساب کاربری</p>
       <span>
         برای استفاده از امکانات دیوار , لطفا شماره موبایل خود را وارد کنید . کد
