@@ -2,7 +2,6 @@ import React from "react";
 
 const SendOtpForm = ({ mobile, setMobile, setStep }) => {
   const submitHandler = (event) => {
-    console.log(event);
     event.preventDefault();
   };
   return (
