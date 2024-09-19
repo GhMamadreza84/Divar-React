@@ -1,8 +1,12 @@
 import React from "react";
 
 const CheckOtpForm = ({ mobile, code, setCode, setStep }) => {
+  const submitHandler = (event) => {
+    event.preventDefault();
+    console.log(code, mobile);
+  };
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <p>تایید کد اس ام اس شده </p>
       <span>کد پیامک شده به شماره موبایل {mobile} را وارد کنید.</span>
       <label htmlFor="input">کد تایید را وارد کنید</label>
