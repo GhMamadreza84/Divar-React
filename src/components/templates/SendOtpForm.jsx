@@ -1,6 +1,6 @@
 import React from "react";
 import { sendOtp } from "../../services/auth";
-
+import { ToastContainer, toast } from "react-toastify";
 const SendOtpForm = ({ mobile, setMobile, setStep }) => {
   const submitHandler = async (event) => {
     event.preventDefault();
