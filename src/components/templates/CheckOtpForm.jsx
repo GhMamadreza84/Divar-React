@@ -3,7 +3,7 @@ import React from "react";
 const CheckOtpForm = ({ mobile, code, setCode, setStep }) => {
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(code, mobile);
+    if (code.length !== 5) return;
   };
   return (
     <form onSubmit={submitHandler}>
