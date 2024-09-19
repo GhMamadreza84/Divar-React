@@ -10,6 +10,7 @@ const SendOtpForm = ({ mobile, setMobile, setStep }) => {
     if (error) console.log(error.response.data.message);
     console.log({ response, error });
   };
+
   return (
     <form onSubmit={submitHandler}>
       <p>ورود به حساب کاربری</p>
