@@ -9,4 +9,4 @@ const sendOtp = async (mobile) => {
   }
 };
 
-export {sendOtp}
+export { sendOtp };
