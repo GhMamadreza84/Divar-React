@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const CheckOtpForm = () => {
+const CheckOtpForm = ({ mobile, code, setCode, setStep }) => {
   return (
-    <div>
-      check otp form
-    </div>
-  )
-}
+    <form>
+      <p>تایید کد اس ام اس شده </p>
+        
+    </form>
+  );
+};
 
-export default CheckOtpForm
+export default CheckOtpForm;
