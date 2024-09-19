@@ -11,7 +11,7 @@ const AuthPage = () => {
       {step === 1 ? (
         <SendOtpForm setStep={setStep} mobile={mobile} setMobile={setMobile} />
       ) : (
-        <CheckOtpForm code={code} setCode={setCode} mobile={mobile} />
+        <CheckOtpForm code={code} setCode={setCode} mobile={mobile} setStep={setStep} />
       )}
     </div>
   );
