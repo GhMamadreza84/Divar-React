@@ -15,6 +15,7 @@ const checkOtp = async (mobile, code) => {
     return { response };
   } catch (error) {
     return { error };
+    
   }
 };
 

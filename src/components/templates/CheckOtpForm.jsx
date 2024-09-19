@@ -1,9 +1,17 @@
 import React from "react";
+import { checkOtp } from "../../services/auth";
 
 const CheckOtpForm = ({ mobile, code, setCode, setStep }) => {
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     if (code.length !== 5) return;
+
+    const { response, error } = await checkOtp(mobile, code);
+    if (response) {
+      console.log(response);
+    } else {
+      console.log(error.response.data.message);
+    }
   };
   return (
     <form onSubmit={submitHandler}>
