@@ -18,10 +18,11 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      ...paths.reduce((acc, cur) => ({
+      ...paths.reduce(
+        (acc, cur) => ({
         ...acc,
         [cur]: `/${cur === "src" ? cur : "src/" + cur} `,
-      })),
+      }),""),
     },
   },
 });
