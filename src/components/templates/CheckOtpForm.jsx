@@ -1,6 +1,6 @@
 import React from "react";
 import { checkOtp } from "../../services/auth";
-
+import setCookie from "../../utils/cookie";
 const CheckOtpForm = ({ mobile, code, setCode, setStep }) => {
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -8,7 +8,7 @@ const CheckOtpForm = ({ mobile, code, setCode, setStep }) => {
 
     const { response, error } = await checkOtp(mobile, code);
     if (response) {
-      console.log(response);
+      setCookie(response.data);
     } else {
       console.log(error.response.data.message);
     }

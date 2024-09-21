@@ -7,4 +7,4 @@ const setCookie = (tokens) => {
   }`;
 };
 
-export default { setCookie };
+export  { setCookie };
