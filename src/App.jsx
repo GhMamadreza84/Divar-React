@@ -13,7 +13,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/404" element={<PageNotFount />} />
+        <Route path="*" element={<PageNotFount />} />
       </Routes>
     </BrowserRouter>
   );
