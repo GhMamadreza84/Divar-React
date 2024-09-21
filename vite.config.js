@@ -20,9 +20,11 @@ export default defineConfig({
     alias: {
       ...paths.reduce(
         (acc, cur) => ({
-        ...acc,
-        [cur]: `/${cur === "src" ? cur : "src/" + cur} `,
-      }),""),
+          ...acc,
+          [cur]: `/${cur === "src" ? cur : "src/" + cur} `,
+        }),
+        ""
+      ),
     },
   },
 });
