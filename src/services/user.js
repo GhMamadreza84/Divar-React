@@ -1,7 +1,7 @@
 import api from "../configs/api";
 import { getCookie } from "../utils/cookie";
 
-getCookie("accessToken");
+console.log(getCookie("accessToken"));
 
 const getProfile = () => api.get("user/whoami");
 
