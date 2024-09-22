@@ -7,4 +7,8 @@ const setCookie = (tokens) => {
   }`;
 };
 
-export  { setCookie };
+const getCookie = (cookieName) => {
+  console.log(document.cookie);
+};
+
+export { setCookie, getCookie };
