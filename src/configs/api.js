@@ -21,4 +21,14 @@ api.interceptors.request.use(
   }
 );
 
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const originalError = error.config;
+    console.log(originalError)
+  }
+);
+
 export default api;
