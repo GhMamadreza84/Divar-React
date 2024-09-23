@@ -27,7 +27,7 @@ api.interceptors.response.use(
   },
   (error) => {
     const originalError = error.config;
-    console.log(originalError)
+    
   }
 );
 
