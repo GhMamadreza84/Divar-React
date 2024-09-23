@@ -27,12 +27,13 @@ api.interceptors.response.use(
     return response;
   },
   async (error) => {
-    const originalError = error.config;
-    if (error.response.status === 401 && !originalError._retry) {
-      originalError._retry = true;
+    const originalRequest = error.config;
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
       const res = await getNewTokens();
       if (!res?.response) return;
-      console.log(res);
+      setCookie(res.response.data);
+      return api(originalRequest);
     }
   }
 );
