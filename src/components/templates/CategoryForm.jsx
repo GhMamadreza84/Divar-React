@@ -7,6 +7,7 @@ const CategoryForm = () => {
   const [slug, setSlug] = useState("");
   const [icon, setIcon] = useState("");
   const [error, setError] = useState("");
+  const [result, setResult] = useState("");
   // const [parent, setParent] = useState("");
 
   const handleSubmit = async (e) => {
@@ -20,7 +21,8 @@ const CategoryForm = () => {
     };
     try {
       const result = await addCateGory(categoryData);
-      console.log("Category added", result);
+      console.log("category added", result);
+      setResult("دسته بندی با موفقیت اضافه شد ");
     } catch (error) {
       setError(error.message);
     }
@@ -30,6 +32,7 @@ const CategoryForm = () => {
     <form onSubmit={handleSubmit} className={styles.form}>
       <h3>دسته بندی جدید</h3>
       {error ? <p>لطفا با دقت مقادیر رو وارد کنید</p> : null}
+      {result ? <p>{result}</p> : null}
       {/* name */}
       <label htmlFor="name">اسم دسته بندی</label>
       <input
