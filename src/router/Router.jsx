@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import DashboardPage from "../pages/DashboardPage";
 import PageNotFount from "../pages/404";
@@ -12,20 +12,25 @@ import { getNewTokens } from "../configs/tokens";
 const Router = () => {
   const { data, isLoading, error } = useQuery(["profile"], getProfile);
   console.log({ data, isLoading });
-  // if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <h1>Loading...</h1>;
   const role = data?.data?.role;
   console.log(role);
-  const navigate = useNavigate()
+
   return (
     <Routes>
-      <Route index element={<HomePage />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
-      <Route path="/auth" element={<AuthPage />} />
-      {role === "ADMIN" ? (
-        <Route path="/admin" element={<AdminPage />} />
-      ) : (
-        <Navigate path="/admin" to={<DashboardPage />} />
-      )}
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/auth"
+        element={data ? <Navigate to="/dashboard" /> : <AuthPage />}
+      />
+      <Route
+        path="/dashboard"
+        element={data ? <DashboardPage /> : <Navigate to="/auth" />}
+      />
+      <Route
+        path="/admin"
+        element={data && role === "ADMIN" ? <AdminPage /> : <Navigate to="/" />}
+      />
       <Route path="*" element={<PageNotFount />} />
     </Routes>
   );
