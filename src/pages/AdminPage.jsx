@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState } from "react";
 
 const AdminPage = () => {
-  return (
-    <div>
-      AdminPage
-      AdminPage
-    </div>
-  )
-}
+  const [name, setName] = useState("");
+  const [slug, setSlug] = useState("");
+  const [icon, setIcon] = useState("");
+  const [parent, setParent] = useState("");
 
-export default AdminPage
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  };
+
+  return <div>AdminPage AdminPage</div>;
+};
+
+export default AdminPage;
