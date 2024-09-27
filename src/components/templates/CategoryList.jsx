@@ -17,7 +17,7 @@ const CategoryList = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.list}>
       {categories.length > 0 ? (
         categories.map((category) => (
           <div key={category._id}>
