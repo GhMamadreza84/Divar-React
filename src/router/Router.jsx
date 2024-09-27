@@ -8,11 +8,11 @@ import AuthPage from "../pages/AuthPage";
 import { useQuery } from "@tanstack/react-query";
 import { getProfile } from "../services/user";
 import { getNewTokens } from "../configs/tokens";
-import { ClipLoader } from "react-spinners";
+import Loader from "../components/modules/Loader";
 
 const Router = () => {
   const { data, isLoading, error } = useQuery(["profile"], getProfile);
-  if (isLoading) return ;
+  if (isLoading) return <Loader />;
   const role = data?.data?.role;
 
   return (
