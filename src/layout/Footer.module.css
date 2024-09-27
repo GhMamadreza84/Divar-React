@@ -1,0 +1,16 @@
+.footer {
+  text-align: center;
+  direction: rtl;
+  margin-top: 100px;
+  padding-top: 10px;
+  border-top: 2px solid rgb(234, 234, 234);
+}
+
+.footer p {
+  color: grey;
+}
+
+.footer p span {
+  color: red;
+  margin-left: 10px;
+}
