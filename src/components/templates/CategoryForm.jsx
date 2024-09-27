@@ -3,12 +3,12 @@ import { addCateGory, getCategory } from "../../services/category";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./CategoryForm.module.css";
+import CategoryList from "./CategoryList";
 
 const CategoryForm = () => {
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
   const [icon, setIcon] = useState("");
-  const [categories, setCategories] = useState([]);
   // const [parent, setParent] = useState("");
 
   const handleSubmit = async (e) => {
@@ -28,33 +28,9 @@ const CategoryForm = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const data = await getCategory();
-        setCategories(data);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchCategories();
-  }, []);
-
   return (
     <div>
-      <div>
-        {categories.length > 0 ? (
-          categories.map((category) => (
-            <div key={category._id}>
-              <img src={`${category.icon}.svg`} alt="" />
-              <h5>{category.name}</h5>
-              <p>slug: {category.slug}</p>
-            </div>
-          ))
-        ) : (
-          <p>دسته بندی ای وجود ندارد</p>
-        )}
-      </div>
+      <CategoryList />
       <form onSubmit={handleSubmit} className={styles.form}>
         <h3>دسته بندی جدید</h3>
 
