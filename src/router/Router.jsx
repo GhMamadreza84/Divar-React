@@ -12,7 +12,7 @@ import { ClipLoader } from "react-spinners";
 
 const Router = () => {
   const { data, isLoading, error } = useQuery(["profile"], getProfile);
-  if (isLoading) return <ClipLoader color="#D83939" />;
+  if (isLoading) return ;
   const role = data?.data?.role;
 
   return (
