@@ -2,6 +2,7 @@ import React from "react";
 import { checkOtp } from "../../services/auth";
 import { setCookie } from "../../utils/cookie";
 import { useNavigate } from "react-router-dom";
+import styles from "./CheckOtpForm.module.css";
 const CheckOtpForm = ({ mobile, code, setCode, setStep }) => {
   const navigate = useNavigate();
   const submitHandler = async (event) => {
