@@ -11,10 +11,8 @@ import { getNewTokens } from "../configs/tokens";
 
 const Router = () => {
   const { data, isLoading, error } = useQuery(["profile"], getProfile);
-  console.log({ data, isLoading });
   if (isLoading) return <h1>Loading...</h1>;
   const role = data?.data?.role;
-  console.log(role);
 
   return (
     <Routes>
