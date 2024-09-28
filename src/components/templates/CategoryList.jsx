@@ -31,10 +31,8 @@ const CategoryList = () => {
           <div key={category._id}>
             <img src={`${category.icon}.svg`} alt="" />
             <h5>{category.name}</h5>
+            <button onClick={() => deleteHandler(category._id)}>حذف</button>
             <p>slug: {category.slug}</p>
-            <button onClick={() => deleteHandler(category._id)}>
-              delete
-            </button>
           </div>
         ))
       ) : (
