@@ -20,4 +20,14 @@ const getCategory = async () => {
   }
 };
 
-export { addCateGory, getCategory };
+const deleteCategory = async (id) => {
+  try {
+    const response = await api.delete(`/category/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log("Error deleting category", error.message);
+    throw error;
+  }
+};
+
+export { addCateGory, getCategory, deleteCategory };
