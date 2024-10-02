@@ -44,22 +44,7 @@ const CategoryForm = () => {
     setIcon("");
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const categoryData = {
-  //     name,
-  //     slug,
-  //     icon,
-  //     // parent,
-  //   };
-  //   try {
-  //     const result = await addCateGory(categoryData);
-  //     toast.success("دسته‌بندی با موفقیت اضافه شد!");
-  //   } catch (error) {
-  //     toast.error("خطایی رخ داد. لطفاً دوباره تلاش کنید.");
-  //   }
-  // };
+ 
 
   return (
     <div>

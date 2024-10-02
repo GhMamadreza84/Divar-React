@@ -46,7 +46,7 @@ const CategoryList = () => {
       <div className={styles.list}>
         {categories.length > 0 ? (
           categories.map((category) => (
-            <div key={category._id}>
+            <div key={category._id || category.id}> 
               <img src={`${category.icon}.svg`} alt="" />
               <h5>{category.name}</h5>
               <button onClick={() => deleteHandler(category._id)}>حذف</button>
