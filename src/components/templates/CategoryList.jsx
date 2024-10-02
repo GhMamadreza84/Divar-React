@@ -29,10 +29,10 @@ const CategoryList = () => {
       } else {
         console.error("Previous categories data is not an array.");
       }
-      toast.success("کتگوری با موفقییت حذف شد ");
+      toast.success("دسته بندی با موفقیت حذف شد ");
     },
     onError: (error) => {
-      console.log("Failed to delete the category:", error.message);
+      console.log("خطایی رخ داد دوباره امتحان کنید:", error.message);
     },
   });
 

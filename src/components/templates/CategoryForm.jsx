@@ -7,12 +7,11 @@ import CategoryList from "./CategoryList";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const CategoryForm = () => {
+  const queryClient = useQueryClient();
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
   const [icon, setIcon] = useState("");
   // const [parent, setParent] = useState("");
-
-  const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: addCateGory,
@@ -24,6 +23,7 @@ const CategoryForm = () => {
           return [newCategory];
         }
       });
+      queryClient.invalidateQueries(["categories"]);
       toast.success("دسته بندی با موفقیت اضافه شد !");
     },
     onError: (error) => {
@@ -39,6 +39,9 @@ const CategoryForm = () => {
       icon,
     };
     mutation.mutate(categoryData);
+    setName("");
+    setSlug("");
+    setIcon("");
   };
 
   // const handleSubmit = async (e) => {
