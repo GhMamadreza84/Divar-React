@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { deleteCategory, getCategory } from "../../services/category";
 import styles from "./CategoryList.module.css";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
+
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -16,14 +19,19 @@ const CategoryList = () => {
     fetchCategories();
   }, []);
 
-  const deleteHandler = async (id) => {
-    try {
-      await deleteCategory(id);
-      console.log("category deleted successfully");
-    } catch (error) {
-      console.log("failed to delete the category", error.message);
-    }
-  };
+  const mutation = useMutation({
+    mutationFn: deleteCategory,
+    
+  });
+
+  // const deleteHandler = async (id) => {
+  //   try {
+  //     await deleteCategory(id);
+  //     console.log("category deleted successfully");
+  //   } catch (error) {
+  //     console.log("failed to delete the category", error.message);
+  //   }
+  // };
   return (
     <div className={styles.list}>
       {categories.length > 0 ? (
