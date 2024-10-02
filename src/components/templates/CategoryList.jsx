@@ -5,12 +5,13 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 const CategoryList = () => {
   // const [categories, setCategories] = useState([]);
   const queryClient = useQueryClient();
-
+  if (typeof getCategory !== "function")
+    console.log("getcategory is not a function");
   const {
     data: categories = [],
     isLoading,
     error,
-  } = useQuery("queries", getCategory);
+  } = useQuery(["categories"], getCategory);
 
   const mutation = useMutation({
     mutationFn: deleteCategory,
@@ -18,6 +19,7 @@ const CategoryList = () => {
       queryClient.setQueryData("categories", (oldCategories) =>
         oldCategories.filter((category) => category._id !== id)
       );
+    console.log('category successfully deleted')
     },
     onError: (error) =>
       console.log("Failed to delte the Category:", error.message),
