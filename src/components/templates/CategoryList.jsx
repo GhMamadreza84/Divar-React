@@ -21,8 +21,19 @@ const CategoryList = () => {
 
   const mutation = useMutation({
     mutationFn: deleteCategory,
-    
+    onSuccess: (data, id) => {
+      setCategories((prevCategories) =>
+        prevCategories.filter((category) => category.id !== id)
+      );
+    },
+    onError: (error) => {
+      console.log("Failed to delte the category:", error.message);
+    },
   });
+
+  const deleteHandler = (id) => {
+    mutation.mutate(id);
+  };
 
   // const deleteHandler = async (id) => {
   //   try {
