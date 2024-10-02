@@ -1,7 +1,12 @@
 import React from "react";
+import AddPost from "../components/templates/AddPost";
 
 const DashboardPage = () => {
-  return <div>Dashboard</div>;
+  return (
+    <div>
+      <AddPost />
+    </div>
+  );
 };
 
 export default DashboardPage;
