@@ -1,48 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { deleteCategory, getCategory } from "../../services/category";
 import styles from "./CategoryList.module.css";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 const CategoryList = () => {
-  const [categories, setCategories] = useState([]);
-
+  // const [categories, setCategories] = useState([]);
   const queryClient = useQueryClient();
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const data = await getCategory();
-        setCategories(data);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchCategories();
-  }, []);
+  const {
+    data: categories = [],
+    isLoading,
+    error,
+  } = useQuery("queries", getCategory);
 
   const mutation = useMutation({
     mutationFn: deleteCategory,
     onSuccess: (data, id) => {
-      setCategories((prevCategories) =>
-        prevCategories.filter((category) => category.id !== id)
+      queryClient.setQueryData("categories", (oldCategories) =>
+        oldCategories.filter((category) => category._id !== id)
       );
     },
-    onError: (error) => {
-      console.log("Failed to delte the category:", error.message);
-    },
+    onError: (error) =>
+      console.log("Failed to delte the Category:", error.message),
   });
 
-  const deleteHandler = (id) => {
-    mutation.mutate(id);
-  };
+  const deleteHandler = (id) => mutation.mutate(id);
 
-  // const deleteHandler = async (id) => {
-  //   try {
-  //     await deleteCategory(id);
-  //     console.log("category deleted successfully");
-  //   } catch (error) {
-  //     console.log("failed to delete the category", error.message);
-  //   }
-  // };
+  if (isLoading) return <p>loading</p>;
+  if (error) return <p>error : {error.message}</p>;
+
   return (
     <div className={styles.list}>
       {categories.length > 0 ? (
