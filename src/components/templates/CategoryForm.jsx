@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./CategoryForm.module.css";
 import CategoryList from "./CategoryList";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const CategoryForm = () => {
   const [name, setName] = useState("");
@@ -11,22 +12,51 @@ const CategoryForm = () => {
   const [icon, setIcon] = useState("");
   // const [parent, setParent] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const queryClient = useQueryClient();
 
+  const mutation = useMutation({
+    mutationFn: addCateGory,
+    onSuccess: (newCategory) => {
+      queryClient.setQueriesData(["categories"], (oldData) => {
+        if (Array.isArray(oldData)) {
+          return [...oldData, newCategory];
+        } else {
+          return [newCategory];
+        }
+      });
+      toast.success("دسته بندی با موفقیت اضافه شد !");
+    },
+    onError: (error) => {
+      toast.error("خطایی رخ داد دوباره تلاش کنید !");
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const categoryData = {
       name,
       slug,
       icon,
-      // parent,
     };
-    try {
-      const result = await addCateGory(categoryData);
-      toast.success("دسته‌بندی با موفقیت اضافه شد!");
-    } catch (error) {
-      toast.error("خطایی رخ داد. لطفاً دوباره تلاش کنید.");
-    }
+    mutation.mutate(categoryData);
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const categoryData = {
+  //     name,
+  //     slug,
+  //     icon,
+  //     // parent,
+  //   };
+  //   try {
+  //     const result = await addCateGory(categoryData);
+  //     toast.success("دسته‌بندی با موفقیت اضافه شد!");
+  //   } catch (error) {
+  //     toast.error("خطایی رخ داد. لطفاً دوباره تلاش کنید.");
+  //   }
+  // };
 
   return (
     <div>
