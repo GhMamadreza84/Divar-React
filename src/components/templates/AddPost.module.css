@@ -22,6 +22,10 @@
   margin-bottom: 30px;
 }
 
+.form textarea{
+  height: 100px;
+}
+
 .form button {
   background-color: #a62626;
   color: #fff;
