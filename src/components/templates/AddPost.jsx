@@ -9,7 +9,6 @@ const AddPost = () => {
     title: "",
     content: "",
     category: "",
-    price: "",
     amount: null,
     images: null,
   });
@@ -18,11 +17,12 @@ const AddPost = () => {
     if (name !== "images") {
       setForm({ ...form, [name]: e.target.value });
     } else {
-      console.log(e.target);
+      setForm({ ...form, [name]: e.target.files[0] });
     }
   };
   const addHandler = (e) => {
     e.preventDefault();
+    console.log(form);
   };
   return (
     <form onChange={changeHandler}>
