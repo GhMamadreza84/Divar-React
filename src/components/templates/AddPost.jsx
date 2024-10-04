@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { getCategory } from "../../services/category";
 import { addPost } from "../../services/post";
-
+import styles from "./AddPost.module.css";
 const AddPost = () => {
   const { data } = useQuery(["category"], getCategory);
   const [form, setForm] = useState({
@@ -25,7 +25,7 @@ const AddPost = () => {
     console.log(form);
   };
   return (
-    <form onChange={changeHandler}>
+    <form onChange={changeHandler} className={styles.form}>
       <h3>افزودن آگهی</h3>
       <label htmlFor="title">عنوان</label>
       <input type="text" name="title" id="title" />
