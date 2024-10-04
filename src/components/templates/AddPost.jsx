@@ -5,8 +5,21 @@ import { addPost } from "../../services/post";
 
 const AddPost = () => {
   const { data } = useQuery(["category"], getCategory);
+  const [form, setForm] = useState({
+    title: "",
+    content: "",
+    category: "",
+    price: "",
+    amount: null,
+    images: null,
+  });
   const changeHandler = (e) => {
-    console.log(e.target);
+    const name = e.target.name;
+    if (name !== "images") {
+      setForm({ ...form, [name]: e.target.value });
+    } else {
+      console.log(e.target);
+    }
   };
   const addHandler = (e) => {
     e.preventDefault();
