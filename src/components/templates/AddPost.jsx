@@ -37,6 +37,7 @@ const AddPost = () => {
       <input type="text" name="city" id="city" />
       <label htmlFor="category">دسته بندی</label>
       <select name="category" id="category">
+        <option>دسته بندی مورد نظر را انتخاب کنید</option>
         {data?.map((i) => (
           <option key={i._id} value={i._id}>
             {i.name}
