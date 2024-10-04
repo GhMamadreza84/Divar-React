@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { getCategory } from "../../services/category";
 import { addPost } from "../../services/post";
 import styles from "./AddPost.module.css";
+import { getCookie } from "../../utils/cookie";
+import axios from "axios";
 const AddPost = () => {
   const { data } = useQuery(["category"], getCategory);
   const [form, setForm] = useState({
@@ -22,7 +24,20 @@ const AddPost = () => {
   };
   const addHandler = (e) => {
     e.preventDefault();
-    console.log(form);
+    const formData = new FormData();
+    for (let i in form) {
+      formData.append(i, form[i]);
+    }
+    const token = getCookie("accessToken");
+    axios
+      .post(`${import.meta.env.VITE_BASE_URL}post/create`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `bearer ${token}`,
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
   };
   return (
     <form onChange={changeHandler} className={styles.form}>
@@ -30,7 +45,7 @@ const AddPost = () => {
       <label htmlFor="title">عنوان</label>
       <input type="text" name="title" id="title" />
       <label htmlFor="content">توضیحات</label>
-      <textarea name="content" id="content" ></textarea>
+      <textarea name="content" id="content"></textarea>
       <label htmlFor="amount">قیمت</label>
       <input type="text" name="amount" id="amount" />
       <label htmlFor="city">شهر</label>
