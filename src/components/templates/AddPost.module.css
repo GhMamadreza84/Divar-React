@@ -22,14 +22,15 @@
   margin-bottom: 30px;
 }
 
-.form textarea{
+.form textarea {
   height: 100px;
+  resize: none;
 }
 
 .form button {
   background-color: #a62626;
   color: #fff;
-  border-radius: none;
+  border: none;
   padding: 10px 25px;
   border-radius: 5px;
   font-size: 0.9rem;

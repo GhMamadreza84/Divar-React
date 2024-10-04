@@ -30,7 +30,7 @@ const AddPost = () => {
       <label htmlFor="title">عنوان</label>
       <input type="text" name="title" id="title" />
       <label htmlFor="content">توضیحات</label>
-      <input type="text" name="content" id="content" />
+      <textarea name="content" id="content" ></textarea>
       <label htmlFor="amount">قیمت</label>
       <input type="text" name="amount" id="amount" />
       <label htmlFor="city">شهر</label>
