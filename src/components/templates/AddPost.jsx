@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect } from "react";
 import { getCategory } from "../../services/category";
 
 const AddPost = () => {
   const { data } = useQuery(["categories"], getCategory);
-  // console.log(data.name);
+
   return (
     <form>
       <h3>افزودن آگهی</h3>
@@ -18,12 +18,14 @@ const AddPost = () => {
       <input type="text" name="city" id="city" />
       <label htmlFor="category">دسته بندی</label>
       <select name="category" id="category">
-        {data?.map((i) => {
+        {data?.map((i) => (
           <option key={i._id} value={i._id}>
             {i.name}
-          </option>;
-        })}
+          </option>
+        ))}
       </select>
+      <label htmlFor="images">عکس</label>
+      <input type="file" name="images" id="images" />
     </form>
   );
 };
