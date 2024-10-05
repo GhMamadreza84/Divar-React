@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+  };
+  const removeCookie = () => {
+    Cookies.remove("token");
+    Cookies.remove("accessToken");
+    Cookies.remove("refreshToken");
+    navigate("/");
   };
   return (
     <header className={styles.header}>
@@ -25,7 +33,7 @@ const Header = () => {
             {isModalOpen ? (
               <ul className={styles.modal}>
                 <li>ورود به پنل کاربری</li>
-                <li>خروج از حساب کاربری</li>
+                <li onClick={removeCookie}>خروج از حساب کاربری</li>
               </ul>
             ) : null}
           </p>
