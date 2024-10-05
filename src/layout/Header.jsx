@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
