@@ -8,7 +8,7 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const { data } = useQuery(["profile"], getProfile);
-  const queryClient = useQueryClient();
+
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
