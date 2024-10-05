@@ -12,7 +12,7 @@ const Sidebar = () => {
         <p>در حال بارگذاری</p>
       ) : (
         data?.map((category) => (
-          <div>
+          <div key={category._id}>
             <img src={`${category.icon}.svg`} alt="" />
             <span>{category.name}</span>
           </div>
