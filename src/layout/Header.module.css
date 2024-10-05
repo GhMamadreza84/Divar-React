@@ -31,6 +31,17 @@
   position: relative;
 }
 
+.header span button {
+  margin-right: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #808080;
+}
+
 .modal {
   position: absolute;
   bottom: -7.5rem;

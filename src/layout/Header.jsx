@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useQuery } from "@tanstack/react-query";
+import { getProfile } from "../services/user";
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  const { data } = useQuery(["profile"], getProfile);
+  console.log(data);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -28,15 +32,31 @@ const Header = () => {
       <div className="">
         <span>
           <img src="profile.svg" alt="" />
-          <p onClick={toggleModal}>
+          <button onClick={toggleModal}>
             دیوار من
             {isModalOpen ? (
               <ul className={styles.modal}>
-                <li>ورود به پنل کاربری</li>
+                <li>
+                  {data === undefined ? (
+                    <Link to="/auth">ورود به پنل کاربری</Link>
+                  ) : (
+                    ""
+                  )}
+                  {data?.data.role === "USER" ? (
+                    <Link to="/dashboard">ورود به داشبورد</Link>
+                  ) : (
+                    ""
+                  )}
+                  {data?.data.role === "ADMIN" ? (
+                    <Link to="/admin">ورود به پنل ادمین</Link>
+                  ) : (
+                    ""
+                  )}
+                </li>
                 <li onClick={removeCookie}>خروج از حساب کاربری</li>
               </ul>
             ) : null}
-          </p>
+          </button>
         </span>
         <Link className={styles.button} to="/dashboard">
           ثبت آگهی
