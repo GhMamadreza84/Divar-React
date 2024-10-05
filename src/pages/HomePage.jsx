@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
+import Sidebar from "../components/templates/Sidebar";
+import Main from "../components/templates/Main";
 
 const HomePage = () => {
   return (
     <div>
-      HomePage
-      HomePage
+      <Sidebar />
+      <Main />
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
