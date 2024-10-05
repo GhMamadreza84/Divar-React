@@ -33,8 +33,30 @@
 
 .modal {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: -7.5rem;
+  left: -3rem;
+  width: 10rem;
+  background: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.6);
+}
+
+.modal li {
+  list-style: none;
+  padding: 15px;
+}
+
+.modal li:hover {
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+
+.modal li:not(:last-child) {
+  border-bottom: 2px solid rgb(234, 234, 234);
 }
 
 .button {

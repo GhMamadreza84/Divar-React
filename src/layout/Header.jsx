@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -22,10 +22,12 @@ const Header = () => {
           <img src="profile.svg" alt="" />
           <p onClick={toggleModal}>
             دیوار من
-            <ul className={styles.modal}>
-              <li>ورود به پنل کاربری</li>
-              <li>خروج از حساب کاربری</li>
-            </ul>
+            {isModalOpen ? (
+              <ul className={styles.modal}>
+                <li>ورود به پنل کاربری</li>
+                <li>خروج از حساب کاربری</li>
+              </ul>
+            ) : null}
           </p>
         </span>
         <Link className={styles.button} to="/dashboard">
