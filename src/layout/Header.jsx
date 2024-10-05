@@ -13,14 +13,13 @@ const Header = () => {
     setIsModalOpen(!isModalOpen);
   };
   const removeCookie = () => {
-    // refetch
-    queryClient.invalidateQueries(["profile"]);
     // remove tokens
     Cookies.remove("token");
     Cookies.remove("accessToken");
     Cookies.remove("refreshToken");
     // redirect to home page
     navigate("/");
+    window.location.reload();
   };
   return (
     <header className={styles.header}>

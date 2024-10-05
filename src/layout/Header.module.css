@@ -44,7 +44,8 @@
 
 .modal {
   position: absolute;
-  bottom: -4.5rem;
+  /* bottom: -4.5rem; */
+  margin-top: 1rem;
   left: -3rem;
   width: 10rem;
   background: white;
