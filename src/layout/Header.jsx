@@ -9,19 +9,18 @@ const Header = () => {
   const navigate = useNavigate();
   const { data } = useQuery(["profile"], getProfile);
   const queryClient = useQueryClient();
-  console.log(data);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
   const removeCookie = () => {
+    // refetch
+    queryClient.invalidateQueries(["profile"]);
     // remove tokens
     Cookies.remove("token");
     Cookies.remove("accessToken");
     Cookies.remove("refreshToken");
     // redirect to home page
     navigate("/");
-    // refetch
-    queryClient.invalidateQueries(["profile"]);
   };
   return (
     <header className={styles.header}>
@@ -58,7 +57,11 @@ const Header = () => {
                     ""
                   )}
                 </li>
-                <li onClick={removeCookie}>خروج از حساب کاربری</li>
+                {data === undefined ? (
+                  ""
+                ) : (
+                  <li onClick={removeCookie}>خروج از حساب کاربری</li>
+                )}
               </ul>
             ) : null}
           </button>
