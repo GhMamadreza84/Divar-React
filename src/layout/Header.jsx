@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
     <header className={styles.header}>
       <div>
@@ -14,12 +18,16 @@ const Header = () => {
         </span>
       </div>
       <div className="">
-        <Link to="/auth">
-          <span>
-            <img src="profile.svg" alt="" />
-            <p>دیوار من</p>
-          </span>
-        </Link>
+        <span>
+          <img src="profile.svg" alt="" />
+          <p onClick={toggleModal}>
+            دیوار من
+            <ul className={styles.modal}>
+              <li>ورود به پنل کاربری</li>
+              <li>خروج از حساب کاربری</li>
+            </ul>
+          </p>
+        </span>
         <Link className={styles.button} to="/dashboard">
           ثبت آگهی
         </Link>

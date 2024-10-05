@@ -27,6 +27,14 @@
 .header span p {
   margin-right: 5px;
   font-size: 0.9rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.modal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .button {
