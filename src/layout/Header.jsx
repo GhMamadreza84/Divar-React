@@ -2,21 +2,26 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getProfile } from "../services/user";
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const { data } = useQuery(["profile"], getProfile);
+  const queryClient = useQueryClient();
   console.log(data);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
   const removeCookie = () => {
+    // remove tokens
     Cookies.remove("token");
     Cookies.remove("accessToken");
     Cookies.remove("refreshToken");
+    // redirect to home page
     navigate("/");
+    // refetch
+    queryClient.invalidateQueries(["profile"]);
   };
   return (
     <header className={styles.header}>
