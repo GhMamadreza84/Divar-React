@@ -1,14 +1,14 @@
 import React from "react";
 import { sp } from "../../utils/numbers";
-
+import styles from "./Main.module.css";
 const Main = ({ data, isLoading }) => {
   if (isLoading) return <p>درحال بارگزاری</p>;
   const baseUrl = import.meta.env.VITE_BASE_URL;
   return (
-    <div>
+    <div className={styles.container}>
       {data?.data?.posts.map((post) => (
-        <div key={post._id}>
-          <div>
+        <div className={styles.card} key={post._id}>
+          <div className={styles.info}>
             <p>{post.options.title}</p>
             <div>
               <p>{sp(post.amount)} تومان</p>
