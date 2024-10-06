@@ -4,7 +4,7 @@ import { getCategory } from "../../services/category";
 
 const Sidebar = () => {
   const { data, isLoading } = useQuery(["category"], getCategory);
-  console.log({ data, isLoading });
+  // console.log({ data, isLoading });
   return (
     <div>
       <h3>دسته بندی ها</h3>
