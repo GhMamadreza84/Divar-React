@@ -3,7 +3,7 @@ import { sp } from "../../utils/numbers";
 
 const Main = ({ data, isLoading }) => {
   if (isLoading) return <p>درحال بارگزاری</p>;
-  console.log(data);
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   return (
     <div>
       {data?.data?.posts.map((post) => (
@@ -15,7 +15,7 @@ const Main = ({ data, isLoading }) => {
               <span>{post.options.city}</span>
             </div>
           </div>
-          <img src="" alt="" />
+          <img src={`${baseUrl}${post.images[0]}`} alt="" />
         </div>
       ))}
     </div>
