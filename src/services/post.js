@@ -2,7 +2,7 @@ import api from "../configs/api";
 
 const addPost = async (postData) => {
   try {
-    const response = await api.post("/post", postData);
+    const response = await api.post("/create", postData);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || "Error adding post");
