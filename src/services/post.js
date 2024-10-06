@@ -1,4 +1,4 @@
-import api from "js-cookie";
+import api from "../configs/api";
 
 const addPost = async (postData) => {
   try {
@@ -9,6 +9,15 @@ const addPost = async (postData) => {
   }
 };
 
-const getPost = () => api.get("");
+const getPost = async () => {
+  try {
+    const response = api.get("");
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || "Error in Getting All Post"
+    );
+  }
+};
 
 export { addPost, getPost };
