@@ -8,11 +8,11 @@ const style = { display: "flex", justifyContent: "space-between" };
 
 const HomePage = () => {
   const { data, isLoading } = useQuery(["post-list"], getPost);
-  console.log({ data, isLoading });
+
   return (
     <div style={style}>
       <Sidebar />
-      <Main />
+      <Main data={data} isLoading={isLoading} />
     </div>
   );
 };

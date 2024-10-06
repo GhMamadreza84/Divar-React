@@ -12,7 +12,7 @@ const addPost = async (postData) => {
 const getPost = async () => {
   try {
     const response = api.get("");
-    return response.data;
+    return response;
   } catch (error) {
     throw new Error(
       error.response?.data?.message || "Error in Getting All Post"
